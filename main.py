@@ -1,32 +1,8 @@
 import pdfplumber as plumber
 import re
-import webview
-
-
-def handle_dialog(window: webview.Window) -> str:
-    try:
-        return window.create_file_dialog(webview.OPEN_DIALOG, allow_multiple=False, file_types=('pdf'))[0]
-    except TypeError:
-        pass
-    finally:
-        window.destroy()
-
-
-
-def file_dialog() -> str:
-    """
-    Opens a file dialog and returns the path of the file selected.
-    """
-
-    window = webview.create_window("", hidden=True)
-    webview.start(handle_dialog, window)
-    return handle_dialog(window)
-
-
 
 def main():
-    # path = r"C:\Users\Gabe\Downloads\Craig Zacker - CompTIA Network+ Practice Tests_ Exam N10-008 (2021, Sybex) - libgen.li.pdf"
-    path = file_dialog()
+    path = r"C:\Users\Gabe\Downloads\Craig Zacker - CompTIA Network+ Practice Tests_ Exam N10-008 (2021, Sybex) - libgen.li.pdf"
     pdf = plumber.open(path)
 
     offset = input("How many preceeding non-numbered pages?")
