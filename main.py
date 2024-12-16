@@ -2,7 +2,7 @@ import pdfplumber as plumber
 import re
 
 def main():
-    path = r"C:\Users\Gabe\Downloads\Craig Zacker - CompTIA Network+ Practice Tests_ Exam N10-008 (2021, Sybex) - libgen.li.pdf"
+    path = r"FULL PATH TO YOUR PDF HERE"
     pdf = plumber.open(path)
 
     offset = input("How many preceeding non-numbered pages?")
